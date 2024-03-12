@@ -199,7 +199,7 @@ class Database(Check):
                             error_bool += 1
 
                             # Фиксация изменений
-                            conn.commit()
+                            conn.rollback()
 
                     # Вывод ошибки в случае некорректного заполнения электронной почты         
                     else:
@@ -290,7 +290,7 @@ class Database(Check):
                             print(f'Телефон пользователя c id {client_id_check} уже был ранее добавлен в базу данных')
 
                             # Фиксация изменений
-                            conn.commit()
+                            conn.rollback()
 
                 # Вывод ошибки в случае наличия некорректного нового телефона клиента
                 else:
